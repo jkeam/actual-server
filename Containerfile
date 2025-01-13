@@ -18,6 +18,5 @@ COPY src ./src
 COPY migrations ./migrations
 
 # app
-ENTRYPOINT ["/usr/bin/tini","-g",  "--"]
 CMD ["node", "app.js"]
 
