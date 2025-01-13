@@ -66,7 +66,7 @@ let defaultConfig = {
   // fallback to trustedProxies, but in the future trustedProxies will only be used for express trust
   // and trustedAuthProxies will just be for header auth
   trustedAuthProxies: null,
-  port: 5006,
+  port: 8080,
   hostname: '::',
   webRoot: path.join(
     projectRoot,
