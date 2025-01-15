@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actual
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: actual
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: actual
+    spec:
+      containers:
+      - name: actual
+        image: quay.io/jkeam/actual-server
+        imagePullPolicy: Always
+        ports:
+          - name: web
+            containerPort: 8080
+        env:
+          - name: NODE_ENV
+            value: production
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: actual-data

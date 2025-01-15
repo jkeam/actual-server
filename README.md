@@ -1,4 +1,29 @@
+# Actual Server
 This is the main project to run [Actual](https://github.com/actualbudget/actual), a local-first personal finance tool. It comes with the latest version of Actual, and a server to persist changes and make data available across all devices.
+
+## Jon Notes
+
+### Building
+
+```shell
+podman build -t quay.io/jkeam/actual-server -f ./Containerfile .
+```
+
+### Running
+
+#### Locally
+
+```shell
+podman run -p 8080:8080 -v YOUR/PATH/TO/DATA:/data --name actual quay.io/jkeam/actual-server
+```
+
+#### OpenShift
+
+```shell
+oc apply -k ./openshift
+```
+
+## Upstream
 
 ### Getting Started
 Actual is a local-first personal finance tool. It is 100% free and open-source, written in NodeJS, it has a synchronization element so that all your changes can move between devices without any heavy lifting.
@@ -7,7 +32,7 @@ If you are interested in contributing, or want to know how development works, se
 
 Want to say thanks? Click the ⭐ at the top of the page.
 
-### Documentation 
+### Documentation
 
 We have a wide range of documentation on how to use Actual. This is all available in our [Community Documentation](https://actualbudget.org/docs/), including topics on [installing](https://actualbudget.org/docs/install/), [Budgeting](https://actualbudget.org/docs/budgeting/), [Account Management](https://actualbudget.org/docs/accounts/), [Tips & Tricks](https://actualbudget.org/docs/getting-started/tips-tricks) and some documentation for developers.
 
