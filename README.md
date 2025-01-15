@@ -2,7 +2,32 @@
 > This repository will be merged into [actualbudget/actual](https://github.com/actualbudget/actual/tree/master/packages/sync-server) in February 2025 and placed in a readonly state. For more information please see our [Docs](https://actualbudget.org/docs/actual-server-repo-move) or our [Discord](https://discord.com/invite/pRYNYr4W5A).
 
 
+# Actual Server
 This is the main project to run [Actual](https://github.com/actualbudget/actual), a local-first personal finance tool. It comes with the latest version of Actual, and a server to persist changes and make data available across all devices.
+
+## Jon Notes
+
+### Building
+
+```shell
+podman build -t quay.io/jkeam/actual-server -f ./Containerfile .
+```
+
+### Running
+
+#### Locally
+
+```shell
+podman run -p 8080:8080 -v YOUR/PATH/TO/DATA:/data --name actual quay.io/jkeam/actual-server
+```
+
+#### OpenShift
+
+```shell
+oc apply -k ./openshift
+```
+
+## Upstream
 
 ### Getting Started
 Actual is a local-first personal finance tool. It is 100% free and open-source, written in NodeJS, it has a synchronization element so that all your changes can move between devices without any heavy lifting.
